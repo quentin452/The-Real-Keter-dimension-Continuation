@@ -409,7 +409,6 @@ public class TeleporterKether extends Teleporter {
 
    public class PortalPositionKether extends ChunkCoordinates {
       public long lastUpdateTime;
-      private static final String __OBFID = "CL_00000154";
 
       public PortalPositionKether(int p_i1962_2_, int p_i1962_3_, int p_i1962_4_, long p_i1962_5_) {
          super(p_i1962_2_, p_i1962_3_, p_i1962_4_);
