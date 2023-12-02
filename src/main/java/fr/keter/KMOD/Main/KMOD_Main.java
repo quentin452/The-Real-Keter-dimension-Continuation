@@ -93,8 +93,8 @@ public class KMOD_Main {
    @Instance
    public static KMOD_Main instance;
    @SidedProxy(
-      clientSide = "com.KMOD.Main.ClientProxy",
-      serverSide = "com.KMOD.Main.ServerProxy"
+      clientSide = "fr.keter.KMOD.Main.ClientProxy",
+      serverSide = "fr.keter.KMOD.Main.ServerProxy"
    )
    public static ServerProxy serverSide;
    public static ClientProxy clientSide;
