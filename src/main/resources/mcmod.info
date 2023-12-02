@@ -1,0 +1,16 @@
+[
+{
+  "modid": "Real Kether",
+  "name": "The Real Kether",
+  "description": "Kether",
+  "version": "1.7.10-1.9.4-Alpha",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Kczyku"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,38 @@
+{
+    "night.Cikade":
+    {
+        "category": "weather",
+		"sounds":
+        [
+            "night/Cikade"
+        ]
+    },
+	"day.Adventure":
+	{
+		"category": "weather",
+		"sounds":
+		[
+			"day/adventure"
+		]
+	},
+	"boar.boar":
+	{
+		"category": "weather",
+		"sounds":
+		[
+			"boar/boar1",
+			"boar/boar2",
+			"boar/boar3"
+		]
+	},
+	"ghost.ghost":
+	{
+		"category": "weather",
+		"sounds":
+		[
+			"ghost/ghost1",
+			"ghost/ghost2",
+			"ghost/ghost3"
+		]
+	}
+}
