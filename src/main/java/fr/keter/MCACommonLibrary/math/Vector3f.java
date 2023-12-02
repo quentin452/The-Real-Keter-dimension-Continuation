@@ -441,7 +441,7 @@ public final class Vector3f implements Cloneable, Serializable {
 
    public int hashCode() {
       int hash = 37;
-      int hash = hash + 37 * hash + Float.floatToIntBits(this.x);
+      hash = hash + 37 * hash + Float.floatToIntBits(this.x);
       hash += 37 * hash + Float.floatToIntBits(this.y);
       hash += 37 * hash + Float.floatToIntBits(this.z);
       return hash;

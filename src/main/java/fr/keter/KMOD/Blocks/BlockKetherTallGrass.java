@@ -96,7 +96,7 @@ public class BlockKetherTallGrass extends BlockKetherBushBase implements IGrowab
 
    public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
       int l = p_149853_1_.getBlockMetadata(p_149853_3_, p_149853_4_, p_149853_5_);
-      byte b0 = true;
+      boolean b0 = true;
       if (l == 2) {
          b0 = true;
       }

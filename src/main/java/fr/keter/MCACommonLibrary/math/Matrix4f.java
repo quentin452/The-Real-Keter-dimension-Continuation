@@ -873,7 +873,7 @@ public class Matrix4f implements Serializable {
             matrix0[target] = sum;
          }
 
-         double big = 0.0D;
+         big = 0.0D;
          imax = -1;
 
          double temp;
@@ -954,7 +954,7 @@ public class Matrix4f implements Serializable {
             matrix2[cv + 4 * i] = sum;
          }
 
-         int rv = 12;
+         rv = 12;
          matrix2[cv + 12] /= matrix1[rv + 3];
          rv = rv - 4;
          matrix2[cv + 8] = (matrix2[cv + 8] - matrix1[rv + 3] * matrix2[cv + 12]) / matrix1[rv + 2];

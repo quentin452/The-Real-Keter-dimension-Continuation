@@ -185,7 +185,6 @@ public class EntityDemonEye extends EntityFlying implements IMob, IBossDisplayDa
 
    private void createChestWithItems(int p_70975_1_, int p_70975_2_) {
       int b0 = 64;
-      byte b1 = true;
       Random random = new Random();
       int height = (int)this.posY;
       int posZZ = (int)this.posZ;

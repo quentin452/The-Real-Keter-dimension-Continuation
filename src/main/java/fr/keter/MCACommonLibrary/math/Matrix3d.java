@@ -699,7 +699,7 @@ public class Matrix3d implements Serializable, Cloneable {
             matrix0[target] = sum;
          }
 
-         double big = 0.0D;
+         big = 0.0D;
          imax = -1;
 
          double temp;
@@ -780,7 +780,7 @@ public class Matrix3d implements Serializable, Cloneable {
             matrix2[cv + 3 * i] = sum;
          }
 
-         int rv = 6;
+         rv = 6;
          matrix2[cv + 6] /= matrix1[rv + 2];
          rv = rv - 3;
          matrix2[cv + 3] = (matrix2[cv + 3] - matrix1[rv + 2] * matrix2[cv + 6]) / matrix1[rv + 1];
@@ -1642,7 +1642,7 @@ public class Matrix3d implements Serializable, Cloneable {
       double[] sinl = new double[2];
       double[] sinr = new double[2];
       double[] m = new double[9];
-      int MAX_INTERATIONS = true;
+      boolean MAX_INTERATIONS = true;
       double CONVERGE_TOL = 4.89E-15D;
       double c_b48 = 1.0D;
       double c_b71 = -1.0D;

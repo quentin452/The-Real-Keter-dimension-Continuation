@@ -684,7 +684,7 @@ public final class Matrix3f implements Cloneable, Serializable {
 
    public int hashCode() {
       int hash = 37;
-      int hash = 37 * hash + Float.floatToIntBits(this.m00);
+      hash = 37 * hash + Float.floatToIntBits(this.m00);
       hash = 37 * hash + Float.floatToIntBits(this.m01);
       hash = 37 * hash + Float.floatToIntBits(this.m02);
       hash = 37 * hash + Float.floatToIntBits(this.m10);
