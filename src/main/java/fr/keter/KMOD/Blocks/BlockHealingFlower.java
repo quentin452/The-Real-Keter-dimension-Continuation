@@ -1,0 +1,104 @@
+package fr.keter.KMOD.Blocks;
+
+import fr.keter.KMOD.Main.KMOD_Main;
+import fr.keter.KMOD.TileEntities.TileEntityHealingFlower;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+
+public class BlockHealingFlower extends BlockContainer {
+   int c = 0;
+
+   public BlockHealingFlower() {
+      super(Material.plants);
+      this.setTickRandomly(true);
+      this.setCreativeTab(KMOD_Main.KetherTab);
+      this.setBlockBounds(0.4F, 0.0F, 0.4F, 0.6F, 0.5F, 0.6F);
+   }
+
+   public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_) {
+   }
+
+   public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_) {
+      return p_149660_9_;
+   }
+
+   public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
+      if (this.c >= 20 && entity instanceof EntityPlayer) {
+         ((EntityPlayer)entity).heal(1.0F);
+         this.c = 0;
+      }
+
+      ++this.c;
+   }
+
+   public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
+      return super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) && this.canBlockStay(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
+   }
+
+   protected boolean canPlaceBlockOn(Block p_149854_1_) {
+      return p_149854_1_ == Blocks.grass || p_149854_1_ == Blocks.dirt || p_149854_1_ == Blocks.farmland || p_149854_1_ == KMOD_Main.KetherGrass || p_149854_1_ == KMOD_Main.KetherDirt;
+   }
+
+   public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {
+      super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
+      this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
+   }
+
+   public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
+      this.checkAndDropBlock(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_);
+   }
+
+   protected void checkAndDropBlock(World p_149855_1_, int p_149855_2_, int p_149855_3_, int p_149855_4_) {
+      if (!this.canBlockStay(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_)) {
+         this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
+         p_149855_1_.setBlock(p_149855_2_, p_149855_3_, p_149855_4_, getBlockById(0), 0, 2);
+      }
+
+   }
+
+   public boolean canBlockStay(World world, int x, int y, int z) {
+      return world.getBlock(x, y - 1, z) == KMOD_Main.KetherGrass || world.getBlock(x, y - 1, z) == KMOD_Main.KetherDirt || world.getBlock(x, y - 1, z) == Blocks.grass || world.getBlock(x, y - 1, z) == Blocks.dirt;
+   }
+
+   public Block getPlant(IBlockAccess world, int x, int y, int z) {
+      return this;
+   }
+
+   public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+      return new TileEntityHealingFlower();
+   }
+
+   public int getRenderType() {
+      return -1;
+   }
+
+   public boolean isOpaqueCube() {
+      return false;
+   }
+
+   public boolean renderAsNormalBlock() {
+      return false;
+   }
+
+   public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+      return Item.getItemFromBlock(this);
+   }
+
+   @SideOnly(Side.CLIENT)
+   public void registerBlockIcons(IIconRegister par1IconRegister) {
+      this.blockIcon = par1IconRegister.registerIcon("Real Kether:" + this.getUnlocalizedName().substring(5));
+   }
+}
