@@ -25,7 +25,7 @@ public class RenderHealingFlower extends TileEntitySpecialRenderer {
    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
       GL11.glPushMatrix();
       GL11.glTranslatef((float)x + 0.5F, (float)y + 1.5F, (float)z + 0.5F);
-      ResourceLocation textures = new ResourceLocation("Real Kether:/textures/3DBlocks/Healing Flower.png");
+      ResourceLocation textures = new ResourceLocation("Real Kether:textures/3DBlocks/Healing Flower.png");
       Minecraft.getMinecraft().renderEngine.bindTexture(textures);
       GL11.glPushMatrix();
       GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
