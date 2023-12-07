@@ -1,5 +1,7 @@
 package fr.keter.KMOD.Main;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ModContainer;
 import fr.keter.KMOD.Blocks.BlockBlueFruit;
 import fr.keter.KMOD.Blocks.BlockEnergyConverter;
 import fr.keter.KMOD.Blocks.BlockEnergyEnchanter;
@@ -68,6 +70,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import fr.keter.KMOD.config.KeterConfig;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
@@ -344,12 +347,15 @@ public class KMOD_Main {
    public void preInit(FMLPreInitializationEvent event) {
       KMOD_Main_Entities.init();
       serverSide.registerRenderThings();
+      KeterConfig.setupAndLoad(event);
    }
-
+    public static ModContainer getModContainer() {
+        return FMLCommonHandler.instance().findContainerFor(instance);
+    }
    @EventHandler
    public void init(FMLInitializationEvent event) {
-      NetworkRegistry.INSTANCE.registerGuiHandler(this, new EventGuiHandler());
-      KetherBiome = new BiomeGenBaseKether(100);
+       NetworkRegistry.INSTANCE.registerGuiHandler(this, new EventGuiHandler());
+      KetherBiome = new BiomeGenBaseKether(KeterConfig.utumnoid);
       KetherDirt = (new BlockKetherDirt()).setCreativeTab(KetherTab).setHardness(0.5F).setStepSound(Block.soundTypeGravel).setBlockName("Kether Dirt");
       KetherGrass = (new BlockKetherGrass()).setCreativeTab(KetherTab).setHardness(0.6F).setStepSound(Block.soundTypeGrass).setBlockName("Kether Grass");
       KetherPortal = (new BlockKetherPortal()).setCreativeTab(KetherTab).setHardness(-1.0F).setStepSound(Block.soundTypeGlass).setLightLevel(0.75F).setBlockName("Kether Portal");
