@@ -1,6 +1,5 @@
 package fr.keter.KMOD.Main;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.renderer.entity.RenderLiving;
 
 public class ServerProxy {
@@ -8,7 +7,7 @@ public class ServerProxy {
    }
 
    public int addArmor(String Armor) {
-      return RenderingRegistry.addNewArmourRendererPrefix(Armor);
+       return 0;
    }
 
    public void addNamesToClient() {
